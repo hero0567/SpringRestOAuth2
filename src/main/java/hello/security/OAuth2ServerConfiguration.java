@@ -74,7 +74,6 @@ public class OAuth2ServerConfiguration {
 		@Autowired
 		private DataSource dataSource;
 		
-		
 		@Autowired
 		@Qualifier("authenticationManagerBean")
 		private AuthenticationManager authenticationManager;
@@ -93,16 +92,15 @@ public class OAuth2ServerConfiguration {
 		@Override
 		public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
 			// @formatter:off
-//			clients
-//				.jdbc(dataSource)
-//					.withClient("clientapp")
-//						.authorizedGrantTypes("password","refresh_token")
-//						.authorities("USER")
-//						.scopes("read", "write")
-//						.resourceIds(RESOURCE_ID)
-//						.secret("123456");
-			// @formatter:on
-			
+			//			clients
+			//				.jdbc(dataSource)
+			//					.withClient("clientapp")
+			//						.authorizedGrantTypes("password","refresh_token")
+			//						.authorities("USER")
+			//						.scopes("read", "write")
+			//						.resourceIds(RESOURCE_ID)
+			//						.secret("123456");
+						// @formatter:on
 			clients.withClientDetails(new JdbcClientDetailsService(dataSource));
 			
 		}
